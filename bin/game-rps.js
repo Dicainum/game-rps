@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startRPS from '../src/game-rps2.js';
+import startEngine from '../src/game-rps.js';
 
-startRPS();
+startEngine();
