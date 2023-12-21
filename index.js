@@ -70,13 +70,12 @@ const gameStep = () => {
 
 gameStep();
 
-const playAgain = readlineSync.question('Вы хотите сыграть новую игру?(да|нет)\n');
-    const y = gameStep();
+const playAgain = readlineSync.question('Вы хотите сыграть ещё одну игру?(да|нет)\n');
     let x = playAgain.toLowerCase();
     if (x === "да") {
-        y;
+        gameStep();
     }
-    else if (x === "нет") {
+    else {
         console.log('\nСпасибо за игру!');
     }
     
