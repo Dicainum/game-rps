@@ -2,7 +2,7 @@ install:
 	npm ci
 
 node index.js:
-	node bin/game-rps.js
+	node index.js
 
 publish: 
 	npm publish --dry-run

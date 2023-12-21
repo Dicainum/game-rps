@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "bin": {
-    "game-rps": "bin/game-rps.js"
-  },
+  "index": "bin/index.js",
   "engines": {
     "node": ">=18"
   },

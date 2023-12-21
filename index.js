@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 import readlineSync from 'readline-sync';
 
-const startRPS = (ruleMsg, getGameOptions) => {
+const startRPS = () => {
     
 // камень = 0;
 // ножницы = 1;
@@ -27,7 +29,6 @@ const gameStep = () => {
     if (userChoise == null) return false;
 
     else {
-
     if (computerChoise === 0 && userChoise === 2 
         || computerChoise === 1 && userChoise === 0 
         || computerChoise === 2 && userChoise === 1)
@@ -53,17 +54,12 @@ const gameStep = () => {
     else return true;
 }
 
-    if (userScore > computerScore){
-        console.log('\nВы победили выбрав', userChoise+1,"-", arr[userChoise],', компьютер выбрал', computerChoise+1,"-", arr[computerChoise]);
-    //   console.log('\nВы победили! Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
-    }
-    else if (userScore < computerScore){
-        console.log('\nКомпьютер выиграл выбрав', computerChoise+1,"-", arr[computerChoise],', вы выбрали', userChoise+1,"-", arr[userChoise]);
-    //    console.log('\nКомпьютер выиграл. Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
-    }
-    else if (userScore === computerScore){
-        console.log('\nНичья!');
-    //    console.log('\nНичья! Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
+    if (userScore > computerScore) {
+      console.log('\nВы победили выбрав', userChoise + 1,'-', arr[userChoise],', компьютер выбрал', computerChoise + 1, '-', arr[computerChoise]);}
+    else if (userScore < computerScore) {
+      console.log('\nКомпьютер выиграл выбрав', computerChoise + 1, '-', arr[computerChoise], ', вы выбрали', userChoise + 1, '-', arr[userChoise]);
+    } else if (userScore === computerScore) {
+      console.log('\nНичья!');
     }
     console.log(result);
 }
@@ -81,8 +77,12 @@ const playAgain = readlineSync.question('Вы хотите сыграть ещё
     
 };
 
-const run = () => {
+const greetingsMsg = 'Добро пожаловать!';
+const start = () => {
+  console.log(`${greetingsMsg}`);
+  const userName = readlineSync.question('Введите ваше имя: ');
+  console.log(`\nПривет, ${userName}!`);
   startRPS();
 };
 
-export default run;
+start();
