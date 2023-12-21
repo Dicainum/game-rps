@@ -6,20 +6,20 @@ const startRPS = (ruleMsg, getGameOptions) => {
 // ножницы = 1;
 // бумага = 2;
 
-
 function getUserChoise (){
-    const userChoise = readlineSync.question('Введите один из вариантов\n1. камень \n2. ножницы\n3. бумага \n');
+    const userChoise = readlineSync.question('\nВведите один из вариантов(введите цифру)\n1. Камень \n2. Ножницы\n3. Бумага \n\nВаш выбор: ');
     if (userChoise === null) {
         return userChoise;
     }
     return parseInt(userChoise - 1);
 }
 
-function gameStep() {
-    const computerChoise = Math.floor(Math.random() * 3);
-    console.log(computerChoise);
-    const userChoise = getUserChoise();
-    console.log(userChoise);
+const gameStep = () => {
+    let computerChoise = Math.floor(Math.random() * 3);
+    let userChoise = getUserChoise();
+    const arr = ["Камень", "Ножницы", "Бумага"];
+    console.log("\nВы выбрали:", arr[userChoise]);
+    console.log("\nВыбор компьютера:", arr[computerChoise]);
     let computerScore = 0;
     let userScore = 0;
     let result = '';
@@ -54,17 +54,36 @@ function gameStep() {
 }
 
     if (userScore > computerScore){
-        result = 'Пользователь выиграл';
+        console.log('\nВы победили выбрав', userChoise+1,"-", arr[userChoise],', компьютер выбрал', computerChoise+1,"-", arr[computerChoise]);
+    //   console.log('\nВы победили! Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
     }
     else if (userScore < computerScore){
-        result = 'Компьютер выиграл';
+        console.log('\nКомпьютер выиграл выбрав', computerChoise+1,"-", arr[computerChoise],', вы выбрали', userChoise+1,"-", arr[userChoise]);
+    //    console.log('\nКомпьютер выиграл. Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
     }
     else if (userScore === computerScore){
-        result = 'Ничья!';
+        console.log('\nНичья!');
+    //    console.log('\nНичья! Ваш счёт: пользователь -', userScore, ', компьютер -', computerScore);
     }
     console.log(result);
 }
 
-gameStep();}
+gameStep();
 
-export default startRPS;
+const playAgain = readlineSync.question('Вы хотите сыграть новую игру?(да|нет)\n');
+    const y = gameStep();
+    let x = playAgain.toLowerCase();
+    if (x === "да") {
+        y;
+    }
+    else if (x === "нет") {
+        console.log('\nСпасибо за игру!');
+    }
+    
+};
+
+const run = () => {
+  startRPS();
+};
+
+export default run;

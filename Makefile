@@ -1,7 +1,7 @@
 install:
 	npm ci
 
-game-rps:
+node index.js:
 	node bin/game-rps.js
 
 publish: 

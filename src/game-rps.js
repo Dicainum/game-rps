@@ -2,12 +2,11 @@ import readlineSync from 'readline-sync';
 import startRPS from '../index.js';
 
   const greetingsMsg = 'Добро пожаловать!';
-  //const timesCount = 3;
   
   const startEngine = (ruleMsg, getGameOptions) => {
     console.log(`${greetingsMsg}`);
     const userName = readlineSync.question('Введите ваше имя: ');
-    console.log(`Привет, ${userName}!`);
+    console.log(`\nПривет, ${userName}!`);
     startRPS();
   };
 
